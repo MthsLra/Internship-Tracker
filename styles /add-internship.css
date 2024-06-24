@@ -1,0 +1,81 @@
+.slogan-container{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slogan{
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 150px;
+    margin-right: 150px;
+    text-align: center;
+}
+
+.slogan-gradient{
+    background: linear-gradient(300deg, #ffbe0b, #fb5607, #ff006e, #8338ec, #3a86ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.add-an-internship-filler{
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 600px) {
+    .add-an-internship-filler {
+      flex-direction: column;
+      align-items: center;
+    }
+    .add-an-internship-title{
+        text-align: center;
+        margin-right:20px;
+    }
+    .role-container, .company-container, .salary-container{
+        margin-bottom: 10px;
+        width: 170px;
+    }
+
+}
+
+.role-container, .company-container, .salary-container{
+    flex : 1;
+    margin-left: 20px;
+}
+
+.role-input, .company-input, .salary-input{
+    border-radius: 16px;
+    padding-left: 10px;
+    height: 25px;
+    width: 80%;
+    font-family: Poppins;
+}
+
+.add-an-internship-container{
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #e5e5e5 ;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    border-radius: 16px;
+    border-color: black;
+    border-width: 8px;
+}
+
+.add-an-internship-title{
+    font-family: Poppins;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.internship-color{
+    color:#8338ec;
+    font-weight: 800
+}
+
