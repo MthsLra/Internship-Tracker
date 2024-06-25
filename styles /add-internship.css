@@ -52,6 +52,8 @@
     padding-left: 10px;
     height: 25px;
     width: 80%;
+    border-color: black;
+    border-style: solid;
     font-family: Poppins;
 }
 
@@ -59,12 +61,14 @@
     margin-top: 50px;
     margin-left: 20px;
     margin-right: 20px;
+    height: 130px;
     background-color: #e5e5e5 ;
     padding-top: 10px;
     padding-bottom: 30px;
     border-radius: 16px;
     border-color: black;
     border-width: 8px;
+    position: relative;
 }
 
 .add-an-internship-title{
@@ -78,4 +82,19 @@
     color:#8338ec;
     font-weight: 800
 }
+
+.add-button{
+    position: absolute;
+    right: 28px;
+    bottom: 20px;
+    background-color:#ffbe0b;
+    border-radius: 10px;
+    height: 28px;
+    width: 58px;
+    cursor: pointer;
+    font-family: poppins;
+    font-weight: 500
+}
+
+
 

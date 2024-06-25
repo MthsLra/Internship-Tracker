@@ -14,6 +14,7 @@
     font-size: 16px;
     cursor: pointer;
     transition: color 0.3s ease;
+    font-family: poppins;
 }
 
 .sign-up-button:hover{
