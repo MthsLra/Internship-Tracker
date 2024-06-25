@@ -39,6 +39,17 @@
         margin-bottom: 10px;
         width: 170px;
     }
+    .add-an-internship-container{
+        padding-bottom:80px;
+        align-items: center;
+    }
+    .add-button{
+        right: 55%;
+        left: 45%;
+        bottom: 10%;
+    }
+    
+
 
 }
 
@@ -61,10 +72,9 @@
     margin-top: 50px;
     margin-left: 20px;
     margin-right: 20px;
-    height: 130px;
+    height: 160px;
     background-color: #e5e5e5 ;
     padding-top: 10px;
-    padding-bottom: 30px;
     border-radius: 16px;
     border-color: black;
     border-width: 8px;
@@ -92,8 +102,8 @@
     height: 28px;
     width: 58px;
     cursor: pointer;
-    font-family: poppins;
-    font-weight: 500
+    font-family: Poppins;
+    font-weight: 500;
 }
 
 
