@@ -1,9 +1,8 @@
 .table{
     background-color: lightgrey;
+    width: 100%;
     border-radius: 10px;
     font-family: poppins;
-    display: flex;
-    width: 100%;
     margin-left: 20px;
     margin-right: 20px;
     padding: 15px;
@@ -13,7 +12,16 @@
 }
 
 .table-row{
-    text-align: left;
+    display: flex;
+}
+
+.table-column-role, .table-column-company, .table-column-salary, .table-column-state {
+    flex: 1;
+}
+
+.table-column-role-1, .table-column-company-1, .table-column-salary-1, .table-column-state-1 {
+    flex: 1;
+    font-weight: 700;
 }
 
 .internship-tracker-title-container{
@@ -22,6 +30,16 @@
     font-weight: 700;
     font-size: 20px;
     margin-top: 50px;
+}
+
+.internship-tracker-table-container{
+    display: flex;
+    width: 100%;
+}
+
+.hr-container{
+    width: 100%;
+    flex: 1;
 }
 
 .horizontal-line{
