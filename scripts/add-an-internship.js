@@ -14,6 +14,7 @@ function renderTable(){
                         <div class="table-column-company">${company}</div>
                         <div class="table-column-salary">${salary}</div>
                         <div class="table-column-state">Not answered</div>
+                        <div class="delete-button-container"><button class="delete-button">X</button></div>
                     </div>
 
                     <div class="hr-container"><hr class="horizontal-line"></hr></div>
@@ -23,6 +24,13 @@ function renderTable(){
     });
 
     document.querySelector('.table').innerHTML = tableHTML;
+
+    document.querySelectorAll('.delete-button').forEach((deleteButton, index) => {
+        deleteButton.addEventListener('click', () => {
+            tableArray.splice(index, 1);
+            renderTable();
+        })
+    })
 }
 
 
@@ -31,22 +39,20 @@ document.querySelector('.add-button').addEventListener('click', () => {
     localStorage.setItem('table', JSON.stringify(tableArray));
 });
 
+const roleInput = document.querySelector('.role-input');
+const role = roleInput.value;
+
+const companyInput = document.querySelector('.company-input');
+const company = companyInput.value;
+
+const salaryInput = document.querySelector('.salary-input');
+const salary = salaryInput.value;
 
 
 function addRow(){
-    const roleInput = document.querySelector('.role-input');
-    const role = roleInput.value;
-
-    const companyInput = document.querySelector('.company-input');
-    const company = companyInput.value;
     
-    const salaryInput = document.querySelector('.salary-input');
-    const salary = salaryInput.value;
-
     tableArray.push({role, company, salary});
-
-
     renderTable();
-}
 
+}
 

@@ -16,6 +16,10 @@
 }
 
 .table-column-role, .table-column-company, .table-column-salary, .table-column-state {
+    flex: 8;
+}
+
+.delete-button-container{
     flex: 1;
 }
 
@@ -47,4 +51,17 @@
     border-width: 1px;
     border-style: solid;
     border-color: black;
+}
+
+.delete-button-container{
+    align-items: right;
+}
+
+.delete-button{
+    background-color: #ff006e;
+    border-radius: 7px;
+    height: 22px;
+    cursor: pointer;
+    width: 23px;
+    border: black, solid;
 }
