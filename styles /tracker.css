@@ -53,10 +53,6 @@
     border-color: black;
 }
 
-.delete-button-container{
-    align-items: right;
-}
-
 .delete-button{
     background-color: #ff006e;
     border-radius: 7px;
@@ -64,4 +60,10 @@
     cursor: pointer;
     width: 23px;
     border: black, solid;
+}
+
+@media only screen and (max-width: 600px) {
+    .table-row{
+        flex-direction: column;
+    }
 }
