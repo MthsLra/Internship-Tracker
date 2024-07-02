@@ -49,21 +49,4 @@
 .horizontal-line{
     width: 100%;
     border-width: 1px;
-    border-style: solid;
-    border-color: black;
-}
-
-.delete-button{
-    background-color: #ff006e;
-    border-radius: 7px;
-    height: 22px;
-    cursor: pointer;
-    width: 23px;
-    border: black, solid;
-}
-
-@media only screen and (max-width: 600px) {
-    .table-row{
-        flex-direction: column;
-    }
-}
+    borde
