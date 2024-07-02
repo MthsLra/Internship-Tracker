@@ -76,4 +76,33 @@
     background-color: #e5e5e5 ;
     padding-top: 10px;
     border-radius: 16px;
-    
+    position: relative;
+}
+
+.add-an-internship-title{
+    font-family: Poppins;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.internship-color{
+    color:#8338ec;
+    font-weight: 800
+}
+
+.add-button{
+    position: absolute;
+    right: 28px;
+    bottom: 20px;
+    background-color:#ffbe0b;
+    border-radius: 10px;
+    height: 28px;
+    width: 58px;
+    cursor: pointer;
+    font-family: Poppins;
+    font-weight: 500;
+}
+
+
+

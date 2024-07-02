@@ -2,4 +2,43 @@
     font-family: Poppins;
     font-size: 20px;
     font-weight: 700;
-    color: #ff006e
+    color: #ff006e;
+}
+
+.sign-up-button, .log-in-button{
+    background-color: white;
+    color: black;
+    height: 30px;
+    width: 110px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-family: poppins;
+}
+
+.sign-up-button:hover{
+    color:#ffbe0b;
+}
+
+.log-in-button:hover{
+    color: #8338ec;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+}
+
+.sign-up, .log-in{
+    flex: 1;
+    margin-top: 22px;
+}
+
+.logo{
+    flex: 7;
+    margin-left: 20px;
+}
+
+
+
