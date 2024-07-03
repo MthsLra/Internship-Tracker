@@ -17,7 +17,7 @@
     font-family: Poppins;
     font-size: 40px;
     flex: 1;
-    color: #8338ec;
+    color: #fb5607;
 }
 
 .form-container{
@@ -52,7 +52,7 @@
 
 .submit{
     font-family: poppins;
-    background-color:#ffbe0b;
+    background-color:#3a86ff;
     border: black, solid, 2px;
     border-radius: 16px;
     padding: 6px;
