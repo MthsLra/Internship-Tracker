@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const session = require('express-session');
 const flash = require('express-flash');
 const passport = require('passport');
-const path = require('path');
+const path = require('node:path');
 
 
 const initializePassport = require("./passportCOnfig.js");
@@ -13,7 +13,7 @@ const initializePassport = require("./passportCOnfig.js");
 initializePassport(passport);
 
 
-const PORT = process.env.PORT || 4000;
+const PORT = 5500;
 
 
 app.set('view engine', 'ejs');
@@ -59,7 +59,7 @@ app.get('/users/logout', (req, res)=>{
         res.redirect('/users/login');
         req.flash('success_msg', 'You have successfully logged out')
     });
-})
+});
 
 app.post('/users/register', async (req, res)=>{
     let {name, email, password, password2} = req.body;
@@ -110,7 +110,7 @@ app.post('/users/register', async (req, res)=>{
                     RETURNING id, password`, [name, email, hashedPassword],
                     (err, results) => {
                         if (err){
-                            throw err
+                            throw err;
                         }
                         console.log(results.rows);
                         req.flash('success_msg', "You are now registered. Please log in");
@@ -148,7 +148,7 @@ function checkNotAuthenticated(req, res, next){
     res.redirect('/users/login');
 }
 
-app.listen(PORT, ()=>{
+app.listen(PORT, '127.0.0.1',  ()=>{
     console.log(`Server running on port ${PORT}`);
 });
 
