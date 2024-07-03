@@ -13,7 +13,7 @@ const initializePassport = require("./passportCOnfig.js");
 initializePassport(passport);
 
 
-const PORT = 5500;
+const PORT = 4000;
 
 
 app.set('view engine', 'ejs');
