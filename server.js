@@ -127,7 +127,7 @@ app.post('/users/register', async (req, res)=>{
 app.post(
     '/users/login', 
     passport.authenticate('local', {
-        successRedirect: "/users/dashboard",
+        successRedirect: "http://127.0.0.1:5500/main.html",
         failureRedirect: "/users/login",
         failureFlash: true,
 }));
