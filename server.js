@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const session = require('express-session');
 const flash = require('express-flash');
 const passport = require('passport');
+const path = require('path');
 
 
 const initializePassport = require("./passportCOnfig.js");
@@ -16,6 +17,8 @@ const PORT = process.env.PORT || 4000;
 
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: false}));
 
 app.use(session({
