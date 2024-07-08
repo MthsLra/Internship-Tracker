@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const router = require('express').Router();
 const { pool } = require('./dbConfig.js');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
@@ -13,7 +14,7 @@ const initializePassport = require("./passportCOnfig.js");
 initializePassport(passport);
 
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 
 app.set('view engine', 'ejs');
@@ -39,27 +40,29 @@ app.get('/', (req, res) => {
 });
 
 app.get('/users/register', checkAuthenticated, (req, res)=>{
-    res.render('register');
+    res.render('register.ejs');
 });
 
 app.get('/users/login', checkAuthenticated, (req, res)=>{
-    res.render('login');
+    res.render('login.ejs');
 });
 
-app.get('/users/dashboard', checkNotAuthenticated, (req, res)=>{
-    console.log(req.isAuthenticated());
-    res.render('dashboard', { user: req.user.name });
+app.get('/users/main-connected', checkNotAuthenticated, (req, res)=>{
+    res.render('main-connected.ejs');
 });
 
-app.get('/users/logout', (req, res)=>{
-    req.logout((err) => {
-        if (err) {
-          return next(err);
-        }
-        res.redirect('/users/login');
-        req.flash('success_msg', 'You have successfully logged out')
-    });
+
+
+app.get("/users/logout", (req, res) => {
+        req.logout(err => {
+            if (err) {
+                return next(err);
+            };
+        res.redirect('http://localhost:4000/users/login')
+        });
 });
+
+
 
 app.post('/users/register', async (req, res)=>{
     let {name, email, password, password2} = req.body;
@@ -127,14 +130,14 @@ app.post('/users/register', async (req, res)=>{
 app.post(
     '/users/login', 
     passport.authenticate('local', {
-        successRedirect: "http://127.0.0.1:5500/main.html",
+        successRedirect: "/users/main-connected",
         failureRedirect: "/users/login",
         failureFlash: true,
 }));
 
 function checkAuthenticated(req, res, next){
     if (req.isAuthenticated()){
-        return res.redirect('/users/dashboard');
+        return res.redirect('/users/main-connected');
     }else{
         next();
     }
@@ -151,4 +154,3 @@ function checkNotAuthenticated(req, res, next){
 app.listen(PORT, '127.0.0.1',  ()=>{
     console.log(`Server running on port ${PORT}`);
 });
-

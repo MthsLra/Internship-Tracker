@@ -5,7 +5,7 @@
     color: #ff006e;
 }
 
-.sign-up-button, .log-in-button{
+.sign-up-button, .log-in-button, .logout-button{
     background-color: white;
     color: black;
     height: 30px;
@@ -25,13 +25,18 @@
     color: #8338ec;
 }
 
+.logout-button:hover{
+    color:#fb5607;
+}
+
 .header{
     display: flex;
     flex-direction: row;
 }
 
-.sign-up, .log-in{
+.sign-up, .log-in, .logout{
     flex: 1;
+    text-align: right;
     margin-top: 22px;
 }
 
@@ -39,6 +44,7 @@
     flex: 7;
     margin-left: 20px;
 }
+
 
 
 
