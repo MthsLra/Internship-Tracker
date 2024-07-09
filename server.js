@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const router = require('express').Router();
 const { pool } = require('./dbConfig.js');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
@@ -47,8 +46,17 @@ app.get('/users/login', checkAuthenticated, (req, res)=>{
     res.render('login.ejs');
 });
 
-app.get('/users/main-connected', checkNotAuthenticated, (req, res)=>{
-    res.render('main-connected.ejs');
+app.get('/users/main-connected', checkNotAuthenticated, async (req, res) => {
+    try {
+        const results = await pool.query(
+            'SELECT * FROM job_applications WHERE user_id = $1',
+            [req.user.id]
+        );
+        res.render('main-connected.ejs', {jobApplications: results.rows});
+    } catch (err) {
+        console.error(err);
+        res.send('Error retrieving job applications');
+    }
 });
 
 
@@ -127,6 +135,64 @@ app.post('/users/register', async (req, res)=>{
     }
 });
 
+
+
+app.post('/users/main-connected',checkNotAuthenticated, (req, res)=>{
+    let{role, company, salary} = req.body;
+    let status = 'Not Answered';
+    console.log({
+        role,
+        company,
+        salary,
+        status
+    });
+
+    let errors= [];
+
+    if (!role || !company || !salary){
+        errors.push({message: "Please enter all fields (You can put '?' if you don't know the salary)"})
+    }
+
+    if(errors.length > 0){
+        pool.query(
+            `SELECT * FROM job_applications WHERE user_id = $1`,
+            [req.user.id],
+            (err, results) => {
+                if (err) {
+                    console.log(err);
+                    return res.send('Error fetching the job applications')
+                }
+                res.render('main-connected', { errors, user: req.user.name, jobApplications: results.rows });
+            }
+        );
+    }else{
+        pool.query(
+            `INSERT INTO job_applications (user_id, role, company, salary, status)
+            VALUES ($1, $2, $3, $4, $5)
+            RETURNING role, company, salary, status`, [req.user.id, role, company, salary, status],
+            (err, results) => {
+                if (err){
+                    console.log(err);
+                    return res.send('Error adding job application');
+                }
+                console.log(results.rows);
+                pool.query(
+                    `SELECT * FROM job_applications WHERE user_id = $1`, [req.user.id],
+                    (err, results) => {
+                        if (err){
+                            console.log(err);
+                            return res.send('Error fetching the job applications');
+                        }
+                        res.render('main-connected', {user: req.user.name, jobApplications: results.rows, errors: []});
+                    }
+                );
+            }
+        );
+    }
+    
+    
+});
+
 app.post(
     '/users/login', 
     passport.authenticate('local', {
@@ -134,6 +200,21 @@ app.post(
         failureRedirect: "/users/login",
         failureFlash: true,
 }));
+
+app.post('/users/main-connected/add', checkNotAuthenticated, async (req, res) => {
+    const { company_name, job_title, application_date, status } = req.body;
+    try {
+        await pool.query(
+            `INSERT INTO job_applications (user_id, role, company, salary, status)
+            VALUES ($1, $2, $3, $4, $5)`,
+            [req.user.id, company_name, job_title, application_date, status]
+        );
+        res.redirect('/users/dashboard');
+    } catch (err) {
+        console.error(err);
+        res.send("Error adding job application");
+    }
+});
 
 function checkAuthenticated(req, res, next){
     if (req.isAuthenticated()){

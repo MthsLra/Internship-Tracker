@@ -12,7 +12,7 @@ function renderTable(){
                     <div class="table-row">
                         <div class="table-column-role">${role}</div>
                         <div class="table-column-company">${company}</div>
-                        <div class="table-column-salary">${salary}</div>
+                        <div class="table-column-salary">${salary}</div> 
                         <div class="table-column-state">Not answered</div>
                         <div class="delete-button-container"><button class="delete-button">X</button></div>
                     </div>

@@ -30,21 +30,25 @@
             <div class="add-an-internship-title">
                 <p>Add an <span class="internship-color">application</span></p>
             </div>
-            <div class="add-an-internship-filler">
-                <div class="role-container">
-                    <input type="text" id="idRole" placeholder="Role" class="role-input">
+            <form action="/users/main-connected" method="POST">
+                <div class="add-an-internship-filler">
+                    <div class="role-container">
+                        <input type="text" id="idRole" name="role" placeholder="Role" class="role-input" required>
+                    </div>
+                    <div class="company-container">
+                        <input type="text" id="idCompany" name="company" placeholder="Company" class="company-input" required>
+                    </div>
+                    <div class="salary-container">
+                        <input type="text" id="idSalary" name="salary" placeholder="Salary" class="salary-input" required>
+                    </div>
                 </div>
-                <div class="company-container">
-                    <input classtype="text" id="idCompany" placeholder="Company" class="company-input">
-                </div>
-                <div class="salary-container">
-                    <input type="text" id="idSalary" placeholder="Salary" class="salary-input">
-                </div>
-            </div>
+                <button type="submit" value="Add" class="add-button">Add</button>
+            </form>
         
-            <button class="add-button">Add</button>
+            
             
         </div>
+
 
         <div class="internship-tracker-container">
             <div class="internship-tracker-title-container">
@@ -57,39 +61,24 @@
                         <div class="table-column-company-1">Company</div>
                         <div class="table-column-salary-1">Salary</div>
                         <div class="table-column-state-1">State</div>
+                        <div class="blank-space"></div>
                     </div>
 
                     <div class="hr-container"><hr class="horizontal-line"></hr></div>
-                    
-                    <div class="table-row">
-                        <div class="table-column-role">SWE</div>
-                        <div class="table-column-company">Google</div>
-                        <div class="table-column-salary">12,000</div>
-                        <div class="table-column-state">Not answered</div>
-                    </div>
 
-                    <div class="hr-container"><hr class="horizontal-line"></hr></div>
+                    <% jobApplications.forEach(application => { %>
+                        <div class="table-row">
+                            <div class="table-column-role"><%= application.role %></div>
+                            <div class="table-column-company"><%= application.company %></div>
+                            <div class="table-column-salary"><%= application.salary %></div>
+                            <div class="table-column-state"><%= application.status %></div>
+                            <div class="delete-button-container"><button class="delete-button">X</button></div>
+                        </div>
+                        <div class="hr-container"><hr class="horizontal-line"></hr></div>
+                    <% }) %>
                     
-                    <div class="table-row">
-                        <div class="table-column-role">QA Eng</div>
-                        <div class="table-column-company">Autodesk</div>
-                        <div class="table-column-salary">???</div>
-                        <div class="table-column-state">Answered</div>
-                    </div>
-
-                    <div class="hr-container"><hr class="horizontal-line"></hr></div>
-                    
-                    <div class="table-row">
-                        <div class="table-column-role">AI / ML</div>
-                        <div class="table-column-company">Microsoft</div>
-                        <div class="table-column-salary">7,000</div>
-                        <div class="table-column-state">Not answered</div>
-                    </div>
                 </div>
             </div>
-        </div>
-
-     
-        <script src="public/scripts/add-an-internship.js"></script>
+        </div>        
     </body>
 </html>

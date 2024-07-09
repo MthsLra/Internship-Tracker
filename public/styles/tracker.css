@@ -21,11 +21,16 @@
 
 .delete-button-container{
     flex: 1;
+    text-align: right;
 }
 
 .table-column-role-1, .table-column-company-1, .table-column-salary-1, .table-column-state-1 {
-    flex: 1;
+    flex: 8;
     font-weight: 700;
+}
+
+.blank-space{
+    flex: 1;
 }
 
 .internship-tracker-title-container{
