@@ -6,9 +6,11 @@ const session = require('express-session');
 const flash = require('express-flash');
 const passport = require('passport');
 const path = require('node:path');
+const methodOverride = require('method-override');
 
 
 const initializePassport = require("./passportCOnfig.js");
+const { METHODS } = require('node:http');
 
 initializePassport(passport);
 
@@ -20,6 +22,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
 
 app.use(session({
     secret: 'secret',
@@ -188,9 +191,25 @@ app.post('/users/main-connected',checkNotAuthenticated, (req, res)=>{
                 );
             }
         );
+        
     }
     
     
+});
+
+app.delete('/users/main-connected/:id', checkNotAuthenticated, (req, res)=>{
+    const { id } = req.params;
+    pool.query(
+        `DELETE FROM job_applications WHERE id = $1 AND user_id = $2`,
+        [id, req.user.id],
+        (err, results) => {
+            if (err) {
+                console.log(err);
+                return res.send('Error deleting job application');
+            }
+            res.redirect('/users/main-connected');
+        }
+    );
 });
 
 app.post(

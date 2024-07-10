@@ -72,7 +72,11 @@
                             <div class="table-column-company"><%= application.company %></div>
                             <div class="table-column-salary"><%= application.salary %></div>
                             <div class="table-column-state"><%= application.status %></div>
-                            <div class="delete-button-container"><button class="delete-button">X</button></div>
+                            <div class="delete-button-container">
+                                <form action="/users/main-connected/<%= application.id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="delete-button">X</button>                             
+                                </form>
+                            </div>
                         </div>
                         <div class="hr-container"><hr class="horizontal-line"></hr></div>
                     <% }) %>
