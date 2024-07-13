@@ -29,6 +29,10 @@
     color:#fb5607;
 }
 
+.activate-button:hover{
+    color:#8338ec;
+}
+
 .header{
     display: flex;
     flex-direction: row;

@@ -10,8 +10,8 @@ const oauth2Client = new google.auth.OAuth2(
   process.env.REDIRECT_URI
 );
 
-module.exports = {
-    getAuthUrl: () => {
+
+const getAuthUrl =  () => {
       const scopes = [
         'https://www.googleapis.com/auth/gmail.readonly',
         'https://www.googleapis.com/auth/userinfo.email',
@@ -21,96 +21,78 @@ module.exports = {
         access_type: 'offline',
         scope: scopes
       });
-    },
+}
   
-    setCredentials: (code) => {
+const setCredentials = (code) => {
       return oauth2Client.getToken(code).then(({ tokens }) => {
         oauth2Client.setCredentials(tokens);
         return tokens;
       });
-    },
+}
   
-    listMessages: () => {
+const listMessages=  () => {
       const gmail = google.gmail({ version: 'v1', auth: oauth2Client });
       return gmail.users.messages.list({ userId: 'me' }).then((res) => res.data);
-    }
-};
+}
 
-/*
-oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 
-const gmail = google.gmail({ version: 'v1', auth: oAuth2Client });
+
+oauth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
+
+const gmail = google.gmail({ version: 'v1', auth: oauth2Client });
 
 async function checkEmails() {
-    const users = await getUserDetails();
+    try {
+      const users = await pool.query(`SELECT id, access_token, refresh_token FROM users WHERE access_token IS NOT NULL`);
 
-    for (const user of users) {
-        const oauth2Client = new OAuth2(
-            process.env.CLIENT_ID,
-            process.env.CLIENT_SECRET,
-            process.env.REDIRECT_URI
-        );
-
+      for (const user of users.rows){
         oauth2Client.setCredentials({
-            access_token: user.access_token,
-            refresh_token: user.refresh_token,
+          access_token: user.access_token,
+          refresh_token: user.refresh_token,
         });
 
-        const gmail = google.gmail({ version: 'v1', auth: oauth2Client });
-
-        const res = await gmail.users.messages.list({
-            userId: 'me',
-            q: 'is:unread',
+        const gmail = google.gmail({version: 'v1', auth: oauth2Client});
+        const messagesResponse = await gmail.users.messages.list({
+          userId: 'me',
+          q: 'is:unread'
         });
 
-        const messages = res.data.messages || [];
+        if (messagesResponse.data.messages && messagesResponse.data.messages.length > 0){
+          const jobApplications = await pool.query(
+            `SELECT id, company FROM job_applications WHERE user_id = $1 AND status = $2`,
+            [user.id, 'Not Answered']
+          );
 
-        for (const message of messages) {
-            const msg = await gmail.users.messages.get({
-                userId: 'me',
-                id: message.id,
-            });
+          for (const message of messagesResponse.data.messages){
+            const messageId = message.id;
+            const email = await gmail.users.messages.get({userId:'me', id: messageId});
 
-            const emailData = msg.data;
+            const emailContent = email.data.snippet.toLowerCase();
 
-            
-            const fromHeader = emailData.payload.headers.find(
-                (header) => header.name === 'From'
-            );
-
-            if (fromHeader) {
-                const fromEmail = fromHeader.value;
-                
-                const companyEmails = ['mathis.lara@icloud.com', 'lraphilippe@gmail.com'];
-
-                if (companyEmails.includes(fromEmail)) {
-                    await pool.query(
-                        `UPDATE job_applications SET status = 'Answered' WHERE user_id = $1 AND company_email = $2`,
-                        [user.id, fromEmail]
-                    );
-                }
+            for (const application of jobApplications.rows){
+              if (emailContent.includes(application.company.toLowerCase())){
+                await pool.query(
+                  `UPDATE job_applications SET status = $1 WHERE id = $2`,
+                  ['Answered', application.id]
+                );
+                break;
+              }
             }
+          }
         }
+      } 
+    } catch (error){
+      console.log('Error checking emails', error);
     }
 }
-
-
-async function updateApplicationStatus(companyDomain) {
-  try {
-    await pool.query(
-      `UPDATE job_applications
-       SET status = 'Answered'
-       WHERE company = $1 AND user_id = $2`,
-      [companyDomain, userId] 
-    );
-  } catch (error) {
-    console.error('Error updating application status:', error);
-  }
-}
-
 
 setInterval(checkEmails, 60000); 
 
-module.exports = { checkEmails };
+module.exports = { 
+  checkEmails,
+  getAuthUrl,
+  setCredentials,
+  listMessages 
+};
 
-*/
+

@@ -65,10 +65,19 @@
     cursor: pointer;
     width: 23px;
     border: black, solid;
+    padding-left: 5px;
 }
 
 @media only screen and (max-width: 600px) {
     .table-row{
         flex-direction: column;
     }
+}
+
+.answered{
+    color: #06d6a0;
+}
+
+.not-answered{
+    color: #ff006e;
 }
