@@ -5,7 +5,7 @@
     color: #ff006e;
 }
 
-.sign-up-button, .log-in-button, .logout-button{
+.sign-up-button, .log-in-button, .logout-button, .activate-button{
     background-color: white;
     color: black;
     height: 30px;
@@ -38,6 +38,12 @@
     flex: 1;
     text-align: right;
     margin-top: 22px;
+}
+
+.activate-email-tracker{
+    text-align: center;
+    margin-top: 22px;
+    flex: 2;
 }
 
 .logo{
