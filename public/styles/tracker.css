@@ -11,7 +11,7 @@
     border-style: solid;
 }
 
-.table-row{
+.table-row, .table-row-header{
     display: flex;
 }
 
@@ -72,6 +72,17 @@
     .table-row{
         flex-direction: column;
     }
+    .filter-container{
+        flex-direction: column;
+    }
+    .answered-filter{
+        margin-left: -20px;
+    }
+    .answered-filter, .not-answered-filter, .searchbar-container{
+        margin-bottom: 10px;
+    }
+
+
 }
 
 .answered{
@@ -81,3 +92,44 @@
 .not-answered{
     color: #ff006e;
 }
+
+.filter-container{
+    display: flex;
+    max-width: 900px;
+    min-width: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.searchbar-container{
+    flex:5;
+}
+
+.answered-filter, .not-answered-filter{
+    flex:1;
+}
+
+.searchbar{
+    border: black, solid, 2px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 30px;
+    font-family: poppins;
+}
+
+.answered-filter-button,.not-answered-filter-button{
+    border-radius: 30px;
+    padding: 11px;
+    background-color: white;
+    font-family: poppins;
+}
+
+.answered-filter-button{
+    margin-left: 20px;
+}
+
+
+
+

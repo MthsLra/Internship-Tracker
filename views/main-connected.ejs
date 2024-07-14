@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="/styles/add-internship.css">
         <link rel="stylesheet" type="text/css" href="/styles/tracker.css">
 
+
     </head>
     <body>
         <div class="header">
@@ -57,12 +58,18 @@
             </div>
             <div class="filter-container">
                 <div class="searchbar-container">
-                    <input class="searchbar" placeholder="Search for a job application" type="search" id="search">
+                    <input class="searchbar" onkeyup="search()" placeholder="Search for a job application" type="search" id="search">
+                </div>
+                <div class="answered-filter">
+                    <button onclick="answered()" class="answered-filter-button">Answered</button>
+                </div>
+                <div class="not-answered-filter">
+                    <button onclick="notAnswered()" class="not-answered-filter-button">Not Answered</button>
                 </div>
             </div>
             <div class="internship-tracker-table-container">
                 <div class="table">
-                    <div class="table-row" >
+                    <div class="table-row-header" >
                         <div class="table-column-role-1">Role</div>
                         <div class="table-column-company-1">Company</div>
                         <div class="table-column-salary-1">Salary</div>
@@ -74,9 +81,9 @@
 
                     <% jobApplications.forEach(application => { %>
                         <div class="table-row">
-                            <div class="table-column-role"><%= application.role %></div>
-                            <div class="table-column-company"><%= application.company %></div>
-                            <div class="table-column-salary"><%= application.salary %></div>
+                            <div id="a" class="table-column-role"><%= application.role %></div>
+                            <div id="a" class="table-column-company"><%= application.company %></div>
+                            <div id="a" class="table-column-salary"><%= application.salary %></div>
                             <div class="table-column-state <%= application.status === 'Answered' ? 'answered' : 'not-answered' %>"><%= application.status %></div>
                             <div class="delete-button-container">
                                 <form action="/users/main-connected/<%= application.id %>?_method=DELETE" method="POST">
@@ -87,8 +94,9 @@
                         <div class="hr-container"><hr class="horizontal-line"></hr></div>
                     <% }) %>
                     
-                </div>
             </div>
         </div>        
+        <script src="/scripts/search.js"></script>
     </body>
 </html>
+
