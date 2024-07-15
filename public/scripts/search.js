@@ -22,6 +22,7 @@ function search() {
 
 function answered(){
     const answeredFilter = document.querySelector('.answered-filter-button');
+    let filtreApplied = false;
     var table, rows, row, i, txtValue, lines, line;
     table = document.querySelector('.table');
     rows = table.getElementsByClassName('table-row');
@@ -29,23 +30,31 @@ function answered(){
 
    
     answeredFilter.addEventListener('click', ()=>{
+        filtreApplied = !filtreApplied;
+
         for (i = 0; i < rows.length; i++){
             row = rows[i];
             line = lines[i];
             txtValue = row.textContent || row.innerText;
-            if (txtValue.indexOf('Not Answered') > -1){
-                row.style.display = "none";
-                line.style.display = "none";
+            if (filtreApplied){
+                if (txtValue.indexOf('Not Answered') > -1){
+                    row.style.display = "none";
+                    line.style.display = "none";
+                } else {
+                    row.style.display = "";
+                    line.style.display = "";
+                }
             } else {
                 row.style.display = "";
                 line.style.display = "";
             }
         } 
-    })
+    });
 }
 
 function notAnswered(){
     const answeredFilter = document.querySelector('.not-answered-filter-button');
+    var filtreApplied = false;
     var table, rows, row, i, txtValue, lines, line;
     table = document.querySelector('.table');
     rows = table.getElementsByClassName('table-row');
@@ -53,16 +62,22 @@ function notAnswered(){
 
    
     answeredFilter.addEventListener('click', ()=>{
+        filtreApplied = !filtreApplied;
         for (i = 0; i < rows.length; i++){
             row = rows[i];
             line = lines[i];
             txtValue = row.textContent || row.innerText;
-            if (txtValue.indexOf('Not Answered') > -1){
+            if (filtreApplied){
+                if (txtValue.indexOf('Not Answered') > -1){
+                    row.style.display = "";
+                    line.style.display = "";
+                } else {
+                    row.style.display = "none";
+                    line.style.display = "none";
+                }
+            } else {
                 row.style.display = "";
                 line.style.display = "";
-            } else {
-                row.style.display = "none";
-                line.style.display = "none";
             }
         } 
     })
