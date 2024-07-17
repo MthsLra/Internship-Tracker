@@ -4,92 +4,82 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Internship Tracker</title>
+        <title>Job Application Tracker</title>
 
-        <link rel="stylesheet" type="text/css" href="public/styles/headers.css">
+        <link rel="stylesheet" type="text/css" href="public/styles/header.css">
         <link rel="stylesheet" type="text/css" href="public/styles/add-internship.css">
         <link rel="stylesheet" type="text/css" href="public/styles/tracker.css">
+        <link rel="stylesheet" type="text/css" href="public/styles/main.css">
 
     </head>
     <body>
-        <div class="header">
-            <div class="logo">
-                <p class="logo-text">Application Tracker</p>
+        <div class="main">
+            <div class="header">
+                <div class="logo">
+                    <p class="logo-text">Answrd</p>
+                </div>
+                <div class="sign-up">
+                    <a href="http://localhost:4000/users/register"><button class="sign-up-button">Sign Up</button></a>
+                </div>
+                <div class="log-in">
+                    <a href="http://localhost:4000/users/login"><button class="log-in-button">Log In</button></a>
+                </div>
             </div>
-            <div class="sign-up">
-                <a href="http://localhost:4000/users/register"><button class="sign-up-button">Sign Up</button></a>
+
+            <div class="landing-first">
+                <div class="slogan-container">
+                    <p class="slogan">Tracking your job applications has never been so <span class="slogan-gradient">easy</span></p>
+                </div>
+                <div class="image-first">
+                    <img src="images/preview.png" class="preview">
+                </div>
             </div>
-            <div class="log-in">
-                <a href="http://localhost:4000/users/login"><button class="log-in-button">Log In</button></a>
+
+            <div class="walkthrough-container">
+                <div class="walkthrough-title">How does it work?</div>
+            </div>
+
+            <div class="step-container">
+                <div class="step step-1">     
+                    <div class="left-1">
+                        <p class="title">1. Create an Account</p>
+                        <p class="sub-title">Set up your credentials and then login to your account</p>
+                    </div>
+                    <div class="right-1">
+                        <img src="images/image_2.png" class="image-2">
+                    </div>
+                </div>
+                <div class="step step-2">
+                    <div class="left-2">
+                        <img src="images/image_1.png" class="image-1">
+                    </div>
+                    <div class="right-2">
+                        <p class="title-2">2. Create a Gmail Account</p>
+                        <p class="sub-title-2">Make sure that your Gmail account is only used for your application process</p>
+                    </div>
+                </div>
+                <div class="step step-3">
+                    <div class="left-3">
+                        <p class="title">3. Add your Job Applications</p>
+                        <p class="sub-title">And start building your tracker!</p>
+                    </div>
+                    <div class="right-3">
+                        <img src="images/image_3.png" class="image-3">
+                    </div>
+                </div>
+                <div class="step step-4">
+                    <div class="left-4">
+                        <img src="images/image-4.png" class="image-4">
+                    </div>
+                    <div class="right-4">
+                        <p class="title-2">4. Keep track of your applications' status</p>
+                        <p class="sub-title-2">It will automatically be updated when you receive an email from one the companies you applied for</p>                        
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="slogan-container">
-            <p class="slogan">Tracking your applications has never been so <span class="slogan-gradient">easy</span></p>
-        </div>
-
-        <div class="add-an-internship-container">
-            <div class="add-an-internship-title">
-                <p>Add an <span class="internship-color">application</span></p>
-            </div>
-            <div class="add-an-internship-filler">
-                <div class="role-container">
-                    <input type="text" id="idRole" placeholder="Role" class="role-input">
-                </div>
-                <div class="company-container">
-                    <input classtype="text" id="idCompany" placeholder="Company" class="company-input">
-                </div>
-                <div class="salary-container">
-                    <input type="text" id="idSalary" placeholder="Salary" class="salary-input">
-                </div>
-            </div>
         
-            <button class="add-button">Add</button>
-            
-        </div>
-
-        <div class="internship-tracker-container">
-            <div class="internship-tracker-title-container">
-                <p class="internship-tracker-title">Your Tracker</p>
-            </div>
-            <div class="internship-tracker-table-container">
-                <div class="table">
-                    <div class="table-row" >
-                        <div class="table-column-role-1">Role</div>
-                        <div class="table-column-company-1">Company</div>
-                        <div class="table-column-salary-1">Salary</div>
-                        <div class="table-column-state-1">State</div>
-                    </div>
-
-                    <div class="hr-container"><hr class="horizontal-line"></hr></div>
-                    
-                    <div class="table-row">
-                        <div class="table-column-role">SWE</div>
-                        <div class="table-column-company">Google</div>
-                        <div class="table-column-salary">12,000</div>
-                        <div class="table-column-state">Not answered</div>
-                    </div>
-
-                    <div class="hr-container"><hr class="horizontal-line"></hr></div>
-                    
-                    <div class="table-row">
-                        <div class="table-column-role">QA Eng</div>
-                        <div class="table-column-company">Autodesk</div>
-                        <div class="table-column-salary">???</div>
-                        <div class="table-column-state">Answered</div>
-                    </div>
-
-                    <div class="hr-container"><hr class="horizontal-line"></hr></div>
-                    
-                    <div class="table-row">
-                        <div class="table-column-role">AI / ML</div>
-                        <div class="table-column-company">Microsoft</div>
-                        <div class="table-column-salary">7,000</div>
-                        <div class="table-column-state">Not answered</div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
      
         <script src="public/scripts/add-an-internship.js"></script>

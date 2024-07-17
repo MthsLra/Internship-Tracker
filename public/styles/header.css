@@ -1,15 +1,53 @@
 .logo-text{
-    font-family: Poppins;
-    font-size: 20px;
+    font-family: futura;
+    font-size: 26px;
     font-weight: 700;
-    color: #ff006e;
+    transition:0.5s;
 }
 
-.sign-up-button, .log-in-button, .logout-button, .activate-button{
+.logo-text:hover {
+    color:#07D69F;
+}
+
+/*
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.logo-text:hover {
+    background: linear-gradient(300deg,#3a86ff,#8338ec,#ff006e,#fb5607, #ffbe0b, #fb5607, #ff006e, #8338ec, #3a86ff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: gradientMove 3s linear infinite;
+}
+*/
+
+.sign-up-button, .log-in-button, .logout-button{
     background-color: white;
     color: black;
     height: 30px;
     width: 110px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-family: poppins;
+}
+
+.activate-button{
+    background-color: white;
+    color: black;
+    height: 30px;
+    width: 200px;
+    font-weight: 600;
     border: none;
     font-size: 16px;
     cursor: pointer;
@@ -41,7 +79,7 @@
 .sign-up, .log-in, .logout{
     flex: 1;
     text-align: right;
-    margin-top: 22px;
+    margin-top: 30px;
 }
 
 .activate-email-tracker{

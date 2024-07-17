@@ -1,0 +1,219 @@
+.main{
+    max-width: 1700px;
+    margin: 0 auto;
+}
+
+.landing-first{
+    margin-top: 20px;
+    max-width: fit-content;
+}
+
+.image-first{ 
+    text-align: center;
+    margin-top:0 10%;
+}
+
+
+.preview{
+    size: 70%;
+    height: auto;
+    max-width: 70%;
+    margin-left:10%;
+}
+
+.slogan-container{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slogan{
+    font-family: Poppins;
+    font-size: 3.5vw;
+    font-weight: 700;
+    margin-left: 6vw;
+    margin-right: 6vw;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.slogan-gradient{
+    background: linear-gradient(300deg, #ffbe0b, #fb5607, #ff006e, #8338ec, #3a86ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+@media only screen and (max-width: 1200px) {
+    .slogan {
+        font-size: 3.5vw; 
+    }
+
+    .little-slogan {
+        font-size: 1.6vw;
+    }
+    .step{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .slogan {
+        font-size: 3.5vw; 
+        text-align: center;
+    }
+
+    .little-slogan {
+        font-size: 1.6vw;
+        text-align: center;
+    }
+
+    .step{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .landing-first {
+        flex-direction: column;
+        margin-top: 0px;
+        padding: 0 5%;
+    }
+
+    .slogan {
+        font-size: 3.5vw; 
+        text-align: center;
+    }
+
+    .little-slogan {
+        font-size: 1.6vw;
+        text-align: center;
+    }
+
+    .preview {
+        height: auto;
+        width: 100%; 
+        max-width: 400px; 
+        align-items: center;
+    }
+
+    .image-first {
+        text-align: center;
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .walkthrough-title{
+        text-align: center;
+    }
+    .step{
+        flex-direction: column;
+    }
+}
+
+.walkthrough-container{
+    margin-top: 100px;
+    display:flex;
+    flex-direction: row;
+}
+
+.walkthrough-title{
+    font-family: poppins;
+    font-size: 3vw;
+    font-weight: 700;
+    text-align: center;
+    flex:3
+}
+
+.hr-container{
+    flex: 1;
+    width:100%;
+    margin-top: 17px;
+    margin-right: 20px;
+}
+
+.horizontal-line{
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.step-container{
+    margin-right:20px;
+    margin-left:20px;
+}
+
+.step-1, .step-2, .step-3, .step-4{
+    flex:1;
+    height: 400px;
+    transition: 1s;
+    position: relative;
+    margin-bottom: 10%;
+}
+
+.step-1{
+    margin-top: 100px;
+}
+
+.left-4, .right-3, .left-2, .right-1{
+    flex: 2;
+}
+
+.right-4, .left-3, .right-2, .left-1{
+    flex: 1.4;
+    border-radius: 50px;
+}
+
+.step{
+    display: flex;
+    flex-direction: row;
+}
+
+.title{
+    font-family: poppins;
+    font-weight: 700;
+    font-size: 2.5vw;
+    margin-left: 20px;
+}
+
+.sub-title{
+    font-family: poppins;
+    font-weight: 400;
+    font-size: 1.5vw;
+    margin-left: 20px;
+}
+
+.title-2{
+    font-family: poppins;
+    font-weight: 700;
+    font-size: 2.5vw;
+    margin-left: 20px;
+    text-align:right;
+}
+
+.sub-title-2{
+    font-family: poppins;
+    font-weight: 400;
+    font-size: 1.5vw;
+    margin-left: 20px;
+    text-align:right;
+}
+
+.right-1, .right-3{
+    text-align: right;
+}
+
+.left-2, .left-4{
+    text-align: left;
+}
+
+.image-1, .image-2, .image-3, .image-4{
+    size:80%;
+    height: auto;
+    max-width: 80%;
+}
+
+

@@ -154,7 +154,7 @@ app.post('/users/main-connected', checkNotAuthenticated, async (req, res) => {
     let errors = [];
 
     if (!role || !company || !salary) {
-        errors.push({ message: "Please enter all fields (You can put '?' if you don't know the salary)" });
+        errors.push({ message: "Please enter all fields" });
     }
 
     if (errors.length > 0) {

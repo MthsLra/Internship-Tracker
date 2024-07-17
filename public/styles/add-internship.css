@@ -1,26 +1,3 @@
-.slogan-container{
-    max-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.slogan{
-    font-family: Poppins;
-    font-size: 30px;
-    font-weight: 700;
-    margin-left: 150px;
-    margin-right: 150px;
-    text-align: center;
-}
-
-.slogan-gradient{
-    background: linear-gradient(300deg, #ffbe0b, #fb5607, #ff006e, #8338ec, #3a86ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-}
-
 .add-an-internship-filler{
     display: flex;
     flex-direction: row;

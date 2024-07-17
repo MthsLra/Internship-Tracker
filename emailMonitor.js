@@ -86,7 +86,7 @@ async function checkEmails() {
     }
 }
 
-setInterval(checkEmails, 60000); 
+setInterval(checkEmails, 6000); 
 
 module.exports = { 
   checkEmails,

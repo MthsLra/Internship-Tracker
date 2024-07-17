@@ -10,92 +10,95 @@
         <link rel="stylesheet" type="text/css" href="/styles/header.css">
         <link rel="stylesheet" type="text/css" href="/styles/add-internship.css">
         <link rel="stylesheet" type="text/css" href="/styles/tracker.css">
+        <link rel="stylesheet" type="text/css" href="/styles/main.css">
 
 
     </head>
     <body>
-        <div class="header">
-            <div class="logo">
-                <p class="logo-text">Application Tracker</p>
+        <div class="main">
+            <div class="header">
+                <div class="logo">
+                    <p class="logo-text">Application Tracker</p>
+                </div>
+                <div class="activate-email-tracker">
+                    <form action="/users/activate-email-tracker" method="POST">
+                        <button type="submit" class="activate-button">Email Tracker</button>
+                    </form>
+                </div>
+                <div class="logout">
+                    <a href="/users/logout"><button class="logout-button">Logout</button></a>
+                </div>
             </div>
-            <div class="activate-email-tracker">
-                <form action="/users/activate-email-tracker" method="POST">
-                    <button type="submit" class="activate-button">Email Tracker</button>
+
+            <div class="slogan-container">
+                <p class="slogan">Start <span class="slogan-gradient">tracking</span> your job applications!</p>
+            </div>
+
+            <div class="add-an-internship-container">
+                <div class="add-an-internship-title">
+                    <p>Add an <span class="internship-color">application</span></p>
+                </div>
+                <form action="/users/main-connected" method="POST">
+                    <div class="add-an-internship-filler">
+                        <div class="role-container">
+                            <input type="text" id="idRole" name="role" placeholder="Role" class="role-input" required>
+                        </div>
+                        <div class="company-container">
+                            <input type="text" id="idCompany" name="company" placeholder="Company" class="company-input" required>
+                        </div>
+                        <div class="salary-container">
+                            <input type="text" id="idSalary" name="salary" placeholder="Salary" class="salary-input" required>
+                        </div>
+                    </div>
+                    <button type="submit" value="Add" class="add-button">Add</button>
                 </form>
             </div>
-            <div class="logout">
-                <a href="/users/logout"><button class="logout-button">Logout</button></a>
-            </div>
-        </div>
 
-        <div class="slogan-container">
-            <p class="slogan">Tracking your applications has never been so <span class="slogan-gradient">easy</span></p>
-        </div>
-
-        <div class="add-an-internship-container">
-            <div class="add-an-internship-title">
-                <p>Add an <span class="internship-color">application</span></p>
-            </div>
-            <form action="/users/main-connected" method="POST">
-                <div class="add-an-internship-filler">
-                    <div class="role-container">
-                        <input type="text" id="idRole" name="role" placeholder="Role" class="role-input" required>
+            <div class="internship-tracker-container">
+                <div class="internship-tracker-title-container">
+                    <p class="internship-tracker-title">Your Tracker</p>
+                </div>
+                <div class="filter-container">
+                    <div class="searchbar-container">
+                        <input class="searchbar" onkeyup="search()" placeholder="Search for a job application" type="search" id="search">
                     </div>
-                    <div class="company-container">
-                        <input type="text" id="idCompany" name="company" placeholder="Company" class="company-input" required>
+                    <div class="answered-filter">
+                        <button  class="answered-filter-button">Answered</button>
                     </div>
-                    <div class="salary-container">
-                        <input type="text" id="idSalary" name="salary" placeholder="Salary" class="salary-input" required>
+                    <div class="not-answered-filter">
+                        <button  class="not-answered-filter-button">Not Answered</button>
                     </div>
                 </div>
-                <button type="submit" value="Add" class="add-button">Add</button>
-            </form>
-        </div>
-
-        <div class="internship-tracker-container">
-            <div class="internship-tracker-title-container">
-                <p class="internship-tracker-title">Your Tracker</p>
-            </div>
-            <div class="filter-container">
-                <div class="searchbar-container">
-                    <input class="searchbar" onkeyup="search()" placeholder="Search for a job application" type="search" id="search">
-                </div>
-                <div class="answered-filter">
-                    <button  class="answered-filter-button">Answered</button>
-                </div>
-                <div class="not-answered-filter">
-                    <button  class="not-answered-filter-button">Not Answered</button>
-                </div>
-            </div>
-            <div class="internship-tracker-table-container">
-                <div class="table">
-                    <div class="table-row-header" >
-                        <div class="table-column-role-1">Role</div>
-                        <div class="table-column-company-1">Company</div>
-                        <div class="table-column-salary-1">Salary</div>
-                        <div class="table-column-state-1">State</div>
-                        <div class="blank-space"></div>
-                    </div>
-
-                    <div class="hr-container"><hr class="horizontal-line"></hr></div>
-
-                    <% jobApplications.forEach(application => { %>
-                        <div class="table-row">
-                            <div id="a" class="table-column-role"><%= application.role %></div>
-                            <div id="a" class="table-column-company"><%= application.company %></div>
-                            <div id="a" class="table-column-salary"><%= application.salary %></div>
-                            <div class="table-column-state <%= application.status === 'Answered' ? 'answered' : 'not-answered' %>"><%= application.status %></div>
-                            <div class="delete-button-container">
-                                <form action="/users/main-connected/<%= application.id %>?_method=DELETE" method="POST">
-                                    <button type="submit" class="delete-button">X</button>                             
-                                </form>
-                            </div>
+                <div class="internship-tracker-table-container">
+                    <div class="table">
+                        <div class="table-row-header" >
+                            <div class="table-column-role-1">Role</div>
+                            <div class="table-column-company-1">Company</div>
+                            <div class="table-column-salary-1">Salary</div>
+                            <div class="table-column-state-1">State</div>
+                            <div class="blank-space"></div>
                         </div>
+
                         <div class="hr-container"><hr class="horizontal-line"></hr></div>
-                    <% }) %>
-                    
+
+                        <% jobApplications.forEach(application => { %>
+                            <div class="table-row">
+                                <div id="a" class="table-column-role"><%= application.role %></div>
+                                <div id="a" class="table-column-company"><%= application.company %></div>
+                                <div id="a" class="table-column-salary"><%= application.salary %></div>
+                                <div class="table-column-state <%= application.status === 'Answered' ? 'answered' : 'not-answered' %>"><%= application.status %></div>
+                                <div class="delete-button-container">
+                                    <form action="/users/main-connected/<%= application.id %>?_method=DELETE" method="POST">
+                                        <button type="submit" class="delete-button">X</button>                             
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="hr-container"><hr class="horizontal-line"></hr></div>
+                        <% }) %>
+                        
+                </div>
             </div>
-        </div>        
+        </div> 
         <script src="/scripts/search.js"></script>
     </body>
 </html>
