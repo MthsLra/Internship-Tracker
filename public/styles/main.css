@@ -1,43 +1,41 @@
-.main{
+.main {
     max-width: 1700px;
     margin: 0 auto;
 }
 
-.landing-first{
+.landing-first {
     margin-top: 20px;
     max-width: fit-content;
 }
 
-.image-first{ 
+.image-first { 
     text-align: center;
-    margin-top:0 10%;
+    margin: 0 10%;
 }
 
-
-.preview{
+.preview {
     size: 70%;
     height: auto;
     max-width: 70%;
-    margin-left:10%;
 }
 
-.slogan-container{
+.slogan-container {
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
 }
 
-.slogan{
-    font-family: Poppins;
+.slogan {
+    font-family: futura;
     font-size: 3.5vw;
     font-weight: 700;
     margin-left: 6vw;
     margin-right: 6vw;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     text-align: center;
 }
 
-.slogan-gradient{
+.slogan-gradient {
     background: linear-gradient(300deg, #ffbe0b, #fb5607, #ff006e, #8338ec, #3a86ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -45,6 +43,7 @@
     color: transparent;
 }
 
+/* Media Queries */
 @media only screen and (max-width: 1200px) {
     .slogan {
         font-size: 3.5vw; 
@@ -53,7 +52,8 @@
     .little-slogan {
         font-size: 1.6vw;
     }
-    .step{
+    
+    .step {
         flex-direction: column;
     }
 }
@@ -69,7 +69,7 @@
         text-align: center;
     }
 
-    .step{
+    .step {
         flex-direction: column;
     }
 }
@@ -77,7 +77,7 @@
 @media only screen and (max-width: 600px) {
     .landing-first {
         flex-direction: column;
-        margin-top: 0px;
+        margin-top: 0;
         padding: 0 5%;
     }
 
@@ -105,115 +105,90 @@
         margin-right: auto;
     }
 
-    .walkthrough-title{
+    .walkthrough-title {
         text-align: center;
     }
+
+
     .step{
         flex-direction: column;
+        flex:1;
     }
 }
 
-.walkthrough-container{
-    margin-top: 100px;
-    display:flex;
+.walkthrough-container {
+    margin-top: 15%;
+    display: flex;
     flex-direction: row;
 }
 
-.walkthrough-title{
-    font-family: poppins;
-    font-size: 3vw;
+.walkthrough-title {
+    font-family: poppins, futura;
+    font-size: 4vw;
     font-weight: 700;
     text-align: center;
-    flex:3
+    flex: 3;
 }
 
-.hr-container{
+.hr-container {
     flex: 1;
-    width:100%;
+    width: 100%;
     margin-top: 17px;
     margin-right: 20px;
 }
 
-.horizontal-line{
+.horizontal-line {
     width: 100%;
     border-width: 1px;
     border-style: solid;
     border-color: black;
 }
 
-.step-container{
-    margin-right:20px;
-    margin-left:20px;
+.step-container {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10%;
+    display:flex;
+    flex-direction: column;
 }
 
-.step-1, .step-2, .step-3, .step-4{
-    flex:1;
-    height: 400px;
-    transition: 1s;
-    position: relative;
-    margin-bottom: 10%;
-}
-
-.step-1{
-    margin-top: 100px;
-}
-
-.left-4, .right-3, .left-2, .right-1{
-    flex: 2;
-}
-
-.right-4, .left-3, .right-2, .left-1{
-    flex: 1.4;
-    border-radius: 50px;
-}
-
-.step{
+.step {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    flex: 1;
+    height: 400px;
+    margin-bottom: 10%;
+    text-align:center;
 }
 
-.title{
-    font-family: poppins;
+.title {
+    font-family: poppins, futura;
     font-weight: 700;
     font-size: 2.5vw;
-    margin-left: 20px;
+    text-align: center;
 }
 
-.sub-title{
-    font-family: poppins;
+.sub-title {
+    font-family: poppins, futura;
     font-weight: 400;
     font-size: 1.5vw;
     margin-left: 20px;
 }
 
-.title-2{
-    font-family: poppins;
-    font-weight: 700;
-    font-size: 2.5vw;
-    margin-left: 20px;
-    text-align:right;
+
+
+.bottom{
+    text-align: center;
+    margin-top: 40px;
 }
 
-.sub-title-2{
-    font-family: poppins;
-    font-weight: 400;
-    font-size: 1.5vw;
-    margin-left: 20px;
-    text-align:right;
+.top{
+    margin-top: 40px;
 }
 
-.right-1, .right-3{
-    text-align: right;
-}
-
-.left-2, .left-4{
-    text-align: left;
-}
-
-.image-1, .image-2, .image-3, .image-4{
-    size:80%;
+.image-1, .image-2, .image-3, .image-4 {
+    size: 80%;
     height: auto;
     max-width: 80%;
+    text-align: center;
 }
-
-
