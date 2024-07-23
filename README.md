@@ -1,5 +1,5 @@
-# ANSWRD 
-ANSWRD is the easiest way to stay organised during your job application process and keep track of your applications. 
+# Answrd
+Answrd is the easiest way to stay organised during your job application process and keep track of your applications. 
 The job application can be very stressful, so trying to make it a bit easier was my main concern. 
 To do so, I wanted to automate the process and facilitate the tracking of your applications.
 Thus, I implemented an email tracker which autimatically update the status of the applications and added features to make it easier to find a specific application.
