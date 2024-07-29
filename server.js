@@ -8,7 +8,6 @@ const methodOverride = require('method-override');
 const cron = require('node-cron');
 const { google } = require('googleapis');
 const OAuth2 = google.auth.OAuth2;
-
 const { pool } = require('./dbConfig.js');
 const bcrypt = require('bcrypt');
 const initializePassport = require('./passportCOnfig.js');
